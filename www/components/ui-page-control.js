@@ -132,21 +132,6 @@ UIPageControl.create = function(parameters = {}) {
         }
 
         makeBasicObject(boxPage);
-
-        // Try to load an html file with the same Id
-        let htmlFileName = pageId + ".html";
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    boxPage.element.innerHTML = this.responseText;
-                }
-                // Fail silently
-                // if (this.status == 404) {elmnt.innerHTML = `Page not found:<br />${htmlFileName}`;}
-            }
-        }
-        xhttp.open("GET", htmlFileName, true);
-        xhttp.send();
         return boxPage;
 
     }

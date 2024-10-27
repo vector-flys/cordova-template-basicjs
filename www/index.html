@@ -7,10 +7,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-        <link rel="stylesheet" type="text/css" href="basic/basic.min.css">
+        <link rel="stylesheet" type="text/css" href="basic/basic-min.css">
         <script src="basic/basic.min.js" type="text/javascript" charset="utf-8"></script>
 
         <script src="components/ui-page-control.js" type="text/javascript" charset="utf-8"></script>
+        <script src="components/ui-web-view.js" type="text/javascript" charset="utf-8"></script>
         <script src="components/ui-tabs.js" type="text/javascript" charset="utf-8"></script>
 
         <script>
@@ -18,13 +19,25 @@
             const tabsDataList = [
                 { id: "home", text: "Home" },
                 { id: "clock", text: "Clock" },
-                { id: "tasks", text: "Tasks" },
                 { id: "settings", text: "Settings" },
                 { id: "about", text: "About" }
             ];
             
             var uiPageControl1
             var uiTabs1
+
+            /**
+             * Function to load an external page in a separate WebView
+             */
+            function loadUIPage(name) {
+                uiPageControl1[name].lblDescription = UIWebView.create();
+                uiPageControl1[name].add(that)
+                that.top = 0;
+                that.left = 0;
+                that.width = "100%";
+                that.height = "100%";
+                that.loadHTMLFile(`${name}.html`);
+            }
 
             /**
              * This function is good for switching between static pages
@@ -45,7 +58,7 @@
                 const defaultContainerBox = getDefaultContainerBox();
                 uiPageControl1 = UIPageControl.create({
                     width: defaultContainerBox.width - 40,
-                    height: defaultContainerBox.height * .90
+                    height: defaultContainerBox.height - 121
                 });
                 //that.color = "lightgray"
                 that.round = 14;
@@ -62,7 +75,7 @@
                 // LABEL: Description text
                 uiPageControl1.home.lblDescription = createLabel(0, 0, "auto", "auto");
                 uiPageControl1.home.add(that);
-                that.text = "Lavender";
+                that.text = "Main App Page";
                 that.textColor = "#734f96";
                 that.onResize(function(self) {
                     self.center();
@@ -70,58 +83,21 @@
 
 
                 // Clock page
-                uiPageControl1.createNewPageWithId("clock")
-                uiPageControl1.clock.color = "tomato"
+                uiPageControl1.createNewPageWithId("clock");
+                uiPageControl1.clock.color = "tomato";
+                loadUIPage("clock");
 
-                // LABEL: Description text
-                uiPageControl1.clock.lblDescription = createLabel(0, 0, "auto", "auto")
-                uiPageControl1.clock.add(that)
-
-                // How to add the clock example here to only show up on this page?
-                that.onResize(function(self) {
-                    self.center()
-                })
-                
-                // PAGE 2:
-                uiPageControl1.createNewPageWithId("tasks")
-                uiPageControl1.tasks.color = "PaleTurquoise"
-
-                // LABEL: Description text
-                uiPageControl1.tasks.lblDescription = createLabel(0, 0, "auto", "auto")
-                uiPageControl1.tasks.add(that)
-                that.text = "Pale Turquoise";
-                that.textColor = "#0F4E4E";
-                that.onResize(function(self) {
-                    self.center()
-                })
-
-                // PAGE 3:
+                // Settings page
                 uiPageControl1.createNewPageWithId("settings")
                 uiPageControl1.settings.color = "Bisque"
+                loadUIPage("settings");
 
-                // LABEL: Description text
-                uiPageControl1.settings.lblDescription = createLabel(0, 0, "auto", "auto");
-                uiPageControl1.settings.add(that);
-                that.text = "Bisque";
-                that.textColor = "#B86500";
-                that.onResize(function(self) {
-                    self.center();
-                })
-
-
-                // PAGE 4: About
+                // About page
                 uiPageControl1.createNewPageWithId("about")
                 uiPageControl1.about.color = "DarkGray"
-
-                // LABEL: Description text
-                uiPageControl1.about.lblDescription = createLabel(0, 0, "auto", "auto");
-                uiPageControl1.about.add(that);
-                that.text = "Dark Gray";
-                that.textColor = "#555555";
-                that.onResize(function(self) {
-                    self.center();
-                })
+                loadUIPage("about");
                 
+                // Open the home page
                 uiPageControl1.openPageById("home");
                 //var selectedPageId = uiPageControl1.getSelectedPageId();
                 //var pageCount = uiPageControl1.getPageCount();

@@ -3,65 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About This App</title>
+    <title>About Our Amazing App</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        .container {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            background-color: #f0f0f0;
+            padding: 0px;
         }
-        .container {
-            max-width: "100%";
-            max-height: "100%";
-            padding: 20px;
+        .content {
+            max-width: 800px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
         p {
-            color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .feature {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
         }
         footer {
-            flex-shrink: 0;
-            background-color: #333;
+            background-color: #34495e;
             color: white;
             text-align: center;
             padding: 10px 0;
-            width: 100%;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
-    <div class="container" halign="center" valign="center" width="90%">
-        <h1>About This App</h1>
-        <p>
-            Welcome to our application! This app is designed to make your life easier 
-            by providing innovative solutions to everyday challenges. With a user-friendly 
-            interface and powerful features, we aim to enhance your productivity and 
-            streamline your workflow.
-        </p>
-        <p>
-            Our team of dedicated developers has worked tirelessly to create an 
-            application that is not only functional but also intuitive and enjoyable to use. 
-            We value your feedback and are constantly working to improve and expand our 
-            offerings to meet your needs.
-        </p>
-        <p>
-            Thank you for choosing our app. We hope it serves you well and becomes an 
-            indispensable tool in your daily life.
-        </p>
+    <div class="container">
+        <div class="content">
+            <h1>Our Amazing App</h1>
+            <p>
+                Welcome to our cutting-edge application! We've designed this app with you in mind, 
+                aiming to revolutionize the way you tackle everyday challenges. Our user-friendly 
+                interface coupled with powerful features is here to boost your productivity and 
+                streamline your workflow like never before.
+            </p>
+            Key Features:
+            <div>
+                <span class="feature">Intuitive Design
+                <span class="feature">Powerful Tools</span>
+            </div>
+            <p>
+                Thank you for choosing our app. We're confident it will become an indispensable 
+                part of your daily routine, helping you achieve more with less effort.
+            </p>
+        </div>
     </div>
     <footer>
-        <p>powered by: basic.js<br />https://bug7a.github.io/basic.js/</p>
+        <p>Powered by: basic.js<br>https://bug7a.github.io/basic.js/</p>
     </footer>
 </body>
 </html>

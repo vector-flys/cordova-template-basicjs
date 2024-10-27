@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Wall Clock</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="basic/basic.min.css">
+        <script src="basic/basic.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <script>
+
+        /*
+            
+        ALGORITHM:
+            
+        - Wall clock that shows the current time.
+
+
+        WORKING LOGIC:
+            
+        - For each moving part of the watch, a image is designed.
+          And according to the current time information, its angles are changed.
+        
+        */
+        
+        // 4 images objects of the clock.
+        var imgBackground
+        var imgHour
+        var imgMinute
+        var imgSecond
+        
+        
+        // First running function.
+        var start = function() {
+
+            page.color = "tomato"
+
+            // IMAGE: Create and align the clock's background image.
+            imgBackground = createImage()
+            that.load("images/clock-background.png")
+            that.width = 200
+            that.height = 200
+            // Calculate and align the object to the center of the screen.
+            that.top = (page.height - that.height) / 2
+            that.left = (page.width - that.width) / 2
+
+            // IMAGE: Load and align clock image.
+            imgHour = createImage()
+            that.load("images/clock-hour.png")
+            copySizes(that, imgBackground)
+            
+            // IMAGE: Load and align minute image.
+            imgMinute = createImage()
+            that.load("images/clock-minute.png")
+            copySizes(that, imgBackground)
+            
+            // IMAGE: Load and align the seconds image.
+            imgSecond = createImage()
+            that.load("images/clock-second.png")
+            copySizes(that, imgBackground)
+            
+            // NOTE: When images all overlap the same size
+            // designed to form a clock.
+        
+            // In the main directory, inside the images folder,
+            // you can review related images.
+
+        }
+        
+        // Function that restarts every second.
+        var loop = function() {
+            
+            // INFORMATION:
+            // A circle is 360 degrees.
+            // In the circle of a clock,
+            // There are 12 hours, 60 minutes, or 60 seconds.
+        
+            // QUESTION:
+            // At 12 o'clock, if the degree of the picture is 0
+            // What should the degree of the picture be at 1 o'clock?
+        
+            // SOLUTION:
+            // Divide 360 degrees by 12,
+            // We can calculate every 1 hour movement.
+        
+            // REPLY:
+            // It should move 30 degrees for 1 hour.
+        
+            // For minutes and seconds, the answer is,
+            // 360 / 60 = 6 degrees.
+        
+            // Now, with this information,
+            // the angles of the clock images,
+            // let's translate according to the current time information.
+
+            imgSecond.rotate = clock.second * 6
+            imgMinute.rotate = clock.minute * 6
+            imgHour.rotate = clock.hour * 30
+
+            // NOTE: the clock object returns the current time.
+            
+        }
+        
+        // Set the newObject at the position and size of the sampleObject.
+        var copySizes = function(newObject, sampleObject) {
+            
+            newObject.width = sampleObject.width
+            newObject.height = sampleObject.height
+            newObject.top = sampleObject.top
+            newObject.left = sampleObject.left
+            
+        }
+        
+        /*
+        
+        DEVELOPMENT PROPOSAL:
+        
+        - Under the wall clock, in 12:09:00 format
+          A section that displays the time digitally can be added.
+        - Initial pause can be improved.
+          
+        */
+
+        </script>
+
+    </head>
+    <body></body>
+</html>
