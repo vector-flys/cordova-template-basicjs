@@ -17,6 +17,7 @@
 
             const tabsDataList = [
                 { id: "home", text: "Home" },
+                { id: "clock", text: "Clock" },
                 { id: "tasks", text: "Tasks" },
                 { id: "settings", text: "Settings" },
                 { id: "about", text: "About" }
@@ -67,6 +68,20 @@
                     self.center();
                 })
 
+
+                // Clock page
+                uiPageControl1.createNewPageWithId("clock")
+                uiPageControl1.clock.color = "tomato"
+
+                // LABEL: Description text
+                uiPageControl1.clock.lblDescription = createLabel(0, 0, "auto", "auto")
+                uiPageControl1.clock.add(that)
+
+                // How to add the clock example here to only show up on this page?
+                that.onResize(function(self) {
+                    self.center()
+                })
+                
                 // PAGE 2:
                 uiPageControl1.createNewPageWithId("tasks")
                 uiPageControl1.tasks.color = "PaleTurquoise"
