@@ -1,29 +1,14 @@
 {
-  "name": "com.cordova.template",
-  "displayName": "CordovaTemplate",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "engines": {
-    "node": "=20"
-  },
+  "name": "cordova-template-basicjs",
+  "version": "0.0.1-dev",
+  "description": "This is a tabbed-ui tempalte used by the `cordova create` command.",
+  "repository": "github.com/vector-flys/cordova-template-basicjs",
+  "bugs": "https://github.com/vector-flys/cordova-template-basicjs/issues",
   "main": "index.js",
-  "scripts": {
-    "run:electron": "cordova run electron --nobuild",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
-    "ecosystem:cordova"
+    "ecosystem:cordova",
+    "cordova:template"
   ],
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "cordova-android": "^13.0.0",
-    "cordova-electron": "^4.0.0"
-  },
-  "cordova": {
-    "platforms": [
-      "electron",
-      "android"
-    ]
-  }
+  "author": "MCS Solutions",
+  "license": "Apache-2.0"
 }

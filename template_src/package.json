@@ -1,0 +1,29 @@
+{
+  "name": "com.cordova.template",
+  "displayName": "CordovaTemplate",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "engines": {
+    "node": "=20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "run:electron": "cordova run electron --nobuild",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^13.0.0",
+    "cordova-electron": "^4.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "electron",
+      "android"
+    ]
+  }
+}
