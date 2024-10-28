@@ -21,8 +21,6 @@
 
 # Apache Cordova Sample Template
 
-[![NPM](https://nodei.co/npm/cordova-app-hello-world.png)](https://nodei.co/npm/cordova-app-hello-world/)
-
 A simple template offering a tabbed-ui based on:
 [basic.js](https://bug7a.github.io/basic.js/)
 
